@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Harvest Feast Cooking Competition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Panel</h1>
+        
+        <section>
+            <h2>Clear Votes</h2>
+            <button id="clearVotes">Clear All Votes</button>
+        </section>
+
+        <section>
+            <h2>Change Number of Dishes</h2>
+            <div id="dishCountInputs">
+                <!-- Dish count inputs will be dynamically inserted here -->
+            </div>
+            <button id="updateDishCount">Update Dish Counts</button>
+        </section>
+
+        <section>
+            <h2>View Current Settings</h2>
+            <button id="viewSettings">View Settings</button>
+            <div id="currentSettings"></div>
+        </section>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>
