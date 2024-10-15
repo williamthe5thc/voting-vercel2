@@ -83,6 +83,21 @@ function setupVoting() {
         radioButtons.forEach(radio => {
             radio.addEventListener('change', function() {
                 console.log(`Radio button changed: ${this.value} in category ${index + 1}`);
+                
+                // Get the category and rank from the radio button's name
+                const [categoryName, rank] = this.name.split('-');
+                
+                // Uncheck this dish in other ranks of the same category
+                ['1st', '2nd', '3rd'].forEach(otherRank => {
+                    if (otherRank !== rank) {
+                        const otherRadio = document.querySelector(`input[name="${categoryName}-${otherRank}"][value="${this.value}"]`);
+                        if (otherRadio && otherRadio.checked) {
+                            otherRadio.checked = false;
+                            showToast(`Removed ${this.value} from ${otherRank} place in ${categoryName}`, 'info');
+                        }
+                    }
+                });
+                
                 saveVotesToLocalStorage();
             });
         });
